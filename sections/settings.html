@@ -1,0 +1,172 @@
+
+  <sectionContainer class="sectionContainer--settings">
+    <section class="section--settings">
+      <sectionTitle>Settings</sectionTitle>
+      <sectionMain>
+        <navigationList>
+          <navigationItem class="showSubMenu" subMenuNew="settings--appearance" subMenuOld="settings">
+            <title>Appearance</title>
+            <i class="fas fa-angle-right"></i>
+          </navigationItem>
+          <navigationItem class="showSubMenu" subMenuNew="settings--credentials" subMenuOld="settings">
+            <title>Credentials</title>
+            <i class="fas fa-angle-right"></i>
+          </navigationItem>
+          <navigationItem class="showSubMenu" subMenuNew="settings--startScreen" subMenuOld="settings">
+            <title>Start Screen</title>
+            <i class="fas fa-angle-right"></i>
+          </navigationItem>
+          <navigationItem class="showSubMenu" subMenuNew="settings--profile" subMenuOld="settings">
+            <title>Profile</title>
+            <i class="fas fa-angle-right"></i>
+          </navigationItem>
+        </navigationList>
+      </sectionMain>
+    </section>
+    <section class="section--settings--appearance right">
+      <sectionTitle>
+        <backbutton submenu="settings"><i class="fas fa-angle-left"></i></backbutton>
+        Appearance
+      </sectionTitle>
+      <sectionMain>
+        <navigationList>
+          <navigationItem>
+            <title>Dark Mode</title>
+            <label class="switch"><input type="checkbox" class="darkMode"><span class="slider"></span></label>
+          </navigationItem>
+          <navigationItem class="showSubMenu" subMenuNew="settings--appearance--appColor" subMenuOld="settings--appearance">
+            <title>App Color</title>
+            <i class="fas fa-angle-right"></i>
+          </navigationItem>
+        </navigationList>
+      </sectionMain>
+    </section>
+    <section class="section--settings--credentials right">
+      <sectionTitle>
+        <backbutton submenu="settings"><i class="fas fa-angle-left"></i></backbutton>
+        Credentials
+      </sectionTitle>
+      <sectionMain>
+        <navigationList>
+          <navigationItem class="showSubMenu" subMenuNew="settings--credentials--changeEmail" subMenuOld="settings--credentials">
+            <title>Change Email</title>
+            <i class="fas fa-angle-right"></i>
+          </navigationItem>
+          <navigationItem class="showSubMenu" subMenuNew="settings--credentials--changePassword" subMenuOld="settings--credentials">
+            <title>Change Password</title>
+            <i class="fas fa-angle-right"></i>
+          </navigationItem>
+        </navigationList>
+      </sectionMain>
+    </section>
+    <section class="section--settings--startScreen right">
+      <sectionTitle>
+        <backbutton submenu="settings"><i class="fas fa-angle-left"></i></backbutton>
+        Start Screen
+      </sectionTitle>
+      <sectionMain>
+        <navigationList>
+          <navigationItem><title>Upcoming</title><label class="radio"><input type="radio" name="startScreen" value="list"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Edit Transactions</title><label class="radio"><input type="radio" name="startScreen" value="transactions"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Settings</title><label class="radio"><input type="radio" name="startScreen" value="settings"><span class="radioButton"></span></label></navigationItem>
+        </navigationList>
+      </sectionMain>
+    </section>
+    <section class="section--settings--profile right">
+      <sectionTitle>
+        <backbutton submenu="settings"><i class="fas fa-angle-left"></i></backbutton>
+        Profile
+      </sectionTitle>
+      <sectionMain>
+        <form class="form--settings--profile paddingLR">
+          <inputContainer>
+            <label>First Name</label>
+            <input type="text" class="firstName" />
+          </inputContainer>
+          <inputContainer>
+            <label>Last Name</label>
+            <input type="text" class="lastName" />
+          </inputContainer>
+          <button type="submit">Update</button>
+        </form>
+      </sectionMain>
+    </section>
+    <section class="section--settings--appearance--appColor right">
+      <sectionTitle>
+        <backbutton submenu="settings--appearance"><i class="fas fa-angle-left"></i></backbutton>
+        App Color
+      </sectionTitle>
+      <sectionMain>
+        <navigationList>
+          <navigationItem><title>Swot</title><label class="radio"><input type="radio"  name="appColor" value="color--0"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Forgive</title><label class="radio"><input type="radio"  name="appColor" value="color--1"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Hiss</title><label class="radio"><input type="radio"  name="appColor" value="color--2"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Scarf</title><label class="radio"><input type="radio"  name="appColor" value="color--3"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Scrub</title><label class="radio"><input type="radio"  name="appColor" value="color--4"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Rule</title><label class="radio"><input type="radio"  name="appColor" value="color--5"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Lucky</title><label class="radio"><input type="radio"  name="appColor" value="color--6"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Rustic</title><label class="radio"><input type="radio"  name="appColor" value="color--7"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Sock</title><label class="radio"><input type="radio"  name="appColor" value="color--8"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Slide</title><label class="radio"><input type="radio"  name="appColor" value="color--9"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Victorious</title><label class="radio"><input type="radio"  name="appColor" value="color--10"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Meal</title><label class="radio"><input type="radio"  name="appColor" value="color--11"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Hunt</title><label class="radio"><input type="radio"  name="appColor" value="color--12"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Robin</title><label class="radio"><input type="radio"  name="appColor" value="color--13"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Wealth</title><label class="radio"><input type="radio"  name="appColor" value="color--14"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Icky</title><label class="radio"><input type="radio"  name="appColor" value="color--15"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Thrive</title><label class="radio"><input type="radio"  name="appColor" value="color--16"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Crush</title><label class="radio"><input type="radio"  name="appColor" value="color--17"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Evanescent</title><label class="radio"><input type="radio"  name="appColor" value="color--18"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Deal</title><label class="radio"><input type="radio"  name="appColor" value="color--19"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Justify</title><label class="radio"><input type="radio"  name="appColor" value="color--20"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Comfort</title><label class="radio"><input type="radio"  name="appColor" value="color--21"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Grandfather</title><label class="radio"><input type="radio"  name="appColor" value="color--22"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Flight</title><label class="radio"><input type="radio"  name="appColor" value="color--23"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Sheet</title><label class="radio"><input type="radio"  name="appColor" value="color--24"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Perpetual</title><label class="radio"><input type="radio"  name="appColor" value="color--25"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Sidewalk</title><label class="radio"><input type="radio"  name="appColor" value="color--26"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Shoes</title><label class="radio"><input type="radio"  name="appColor" value="color--27"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Derive</title><label class="radio"><input type="radio"  name="appColor" value="color--28"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Spiffy</title><label class="radio"><input type="radio"  name="appColor" value="color--29"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Lead</title><label class="radio"><input type="radio"  name="appColor" value="color--30"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Ultra</title><label class="radio"><input type="radio"  name="appColor" value="color--31"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Mew</title><label class="radio"><input type="radio"  name="appColor" value="color--32"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Roar</title><label class="radio"><input type="radio"  name="appColor" value="color--33"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Noise</title><label class="radio"><input type="radio"  name="appColor" value="color--34"><span class="radioButton"></span></label></navigationItem>
+          <navigationItem><title>Sour</title><label class="radio"><input type="radio"  name="appColor" value="color--35"><span class="radioButton"></span></label></navigationItem>
+        </navigationList>
+      </sectionMain>
+    </section>
+    <section class="section--settings--credentials--changeEmail right">
+      <sectionTitle>
+        <backbutton submenu="settings--credentials"><i class="fas fa-angle-left"></i></backbutton>
+        Change Email
+      </sectionTitle>
+      <sectionMain>
+        <form class="form--settings--credentials--changeEmail paddingLR">
+            <inputContainer>
+              <label>Email</label>
+              <input type="text" class="email" />
+            </inputContainer>
+            <button type="submit">Update</button>
+        </form>
+      </sectionMain>
+    </section>
+    <section class="section--settings--credentials--changePassword right">
+      <sectionTitle>
+        <backbutton submenu="settings--credentials"><i class="fas fa-angle-left"></i></backbutton>
+        Change Password
+      </sectionTitle>
+      <sectionMain>
+        <form class="form--settings--credentials--changePassword paddingLR">
+            <inputContainer>
+              <label>Password</label>
+              <input type="password" class="password" />
+            </inputContainer>
+            <buttonGroup>
+              <button type="submit">Update</button>
+            </buttonGroup>
+        </form>
+      </sectionMain>
+    </section>
+  </sectionContainer>

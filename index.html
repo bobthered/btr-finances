@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <meta charset="utf-8">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="BTR Finances">
+    <meta name="description" content="Progressive Web App for tracking upcoming finances for budgetary purposes." />
+    <meta name="theme-color" content="#191919" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Finances</title>
+
+    <link rel="stylesheet" href="css/fa/css/fa.all.min.css">
+    <link rel="stylesheet" href="css/styles.min.css"></link>
+    <link rel="manifest" href="manifest.json"></link>
+
+    <!-- iPhone(first generation or 2G), iPhone 3G, iPhone 3GS -->
+    <link rel="apple-touch-icon" sizes="57x57" href="images/icons/icon-57x57.png">
+    <!-- iPad and iPad mini @1x -->
+    <link rel="apple-touch-icon" sizes="76x76" href="images/icons/icon-76x76.png">
+    <!-- iPhone 4, iPhone 4s, iPhone 5, iPhone 5c, iPhone 5s, iPhone 6, iPhone 6s, iPhone 7, iPhone 7s, iPhone8 -->
+    <link rel="apple-touch-icon" sizes="120x120" href="images/icons/icon-120x120.png">
+    <!-- iPad and iPad mini @2x -->
+    <link rel="apple-touch-icon" sizes="152x152" href="images/icons/icon-152x152.png">
+    <!-- iPad Pro -->
+    <link rel="apple-touch-icon" sizes="167x167" href="images/icons/icon-167x167.png">
+    <!-- iPhone X, iPhone 8 Plus, iPhone 7 Plus, iPhone 6s Plus, iPhone 6 Plus -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icons/icon-180x180.png">
+    <!-- Android Devices High Resolution -->
+    <link rel="icon" sizes="192x192" href="images/icons/icon-192x192.png">
+    <!-- Android Devices Normal Resolution -->
+    <link rel="icon" sizes="128x128" href="images/icons/icon-128x128.png">
+
+    <link href="images/splashscreens/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="images/splashscreens/iphone6_splash.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="images/splashscreens/iphoneplus_splash.png" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+    <link href="images/splashscreens/iphonex_splash.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+    <link href="images/splashscreens/iphonexr_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="images/splashscreens/iphonexsmax_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+    <link href="images/splashscreens/ipad_splash.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="images/splashscreens/ipadpro1_splash.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="images/splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="images/splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#ff0040">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#191919">
+    <meta name="msapplication-config" content="images/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#191919">
+  </head>
+  <body darkMode="true">
+
+    <app>
+      <main></main>
+    </app>
+
+    <modalContainer></modalContainer>
+
+    <spinnerContainer class="show">
+      <spinner>
+        <svg class="spinner__svg" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+           <circle class="spinner__svg__path" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+        </svg>
+      </spinner>
+    </spinnerContainer>
+
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
+
+    <script src="js/btrPWA.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </body>
+</html>

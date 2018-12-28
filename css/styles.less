@@ -1,0 +1,970 @@
+@color--black:    #000000;
+@color--gray:     #7F7F7F;
+@color--gray-50:  hsl( hue( @color--gray ), saturation( @color--gray), 97% );
+@color--gray-100: hsl( hue( @color--gray ), saturation( @color--gray), 93% );
+@color--gray-200: hsl( hue( @color--gray ), saturation( @color--gray), 88% );
+@color--gray-300: hsl( hue( @color--gray ), saturation( @color--gray), 70% );
+@color--gray-400: hsl( hue( @color--gray ), saturation( @color--gray), 60% );
+@color--gray-600: hsl( hue( @color--gray ), saturation( @color--gray), 30% );
+@color--gray-700: hsl( hue( @color--gray ), saturation( @color--gray), 15% );
+@color--gray-800: hsl( hue( @color--gray ), saturation( @color--gray), 10% );
+@color--white:    #ffffff;
+@color--0:        #ff0040;
+@color--1:        spin( @color--0, 60 );
+
+.bgColors( @n, @i: 0) when ( @i < @n ) {
+  .bg--color--@{i} {
+    background-color: spin( @color--0, ( @i * 10 ) );
+  }
+  .bgColors( @n, @i + 1 );
+}
+
+.generate-style-colors( @n, @i: 0) when( @i =< @n ) {
+  body[appColor="color--@{i}"] {
+    button, .button,
+    label.radio input:checked + .radioButton,
+    label.switch input:checked + .slider,
+    modal,
+    sectionTitle,
+    ::-webkit-scrollbar-thumb {
+      background-color: spin( @color--0, ( @i * 10 ) );
+    }
+
+    button:focus, .button:focus,
+    button:hover, .button:hover,
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: darken( spin( @color--0, ( @i * 10 ) ), 10% );
+    }
+
+    modal button:focus, modal .button:focus,
+    modal button:hover, modal .button:hover {
+      background-color: darken( @color--white, 10% );
+    }
+
+    label.radio input:checked + .radioButton:before,
+    label.switch input:checked + .slider:before {
+      background-color: contrast( spin( @color--0, ( @i * 10 ) ) );
+    }
+
+    label.switch input:checked + .slider,
+    button.secondary, .button.secondary {
+      border-color: spin( @color--0, ( @i * 10 ) );
+    }
+
+    input:focus,
+    select:focus {
+      box-shadow: 0 1px 0 spin( @color--0, ( @i * 10 ) );
+    }
+
+    &[darkMode="true"] {
+
+      button.secondary, .button.secondary {
+        color: contrast( spin( @color--0, ( @i * 10 ) ), spin( @color--0, ( @i * 10 ) ), spin( @color--0, ( @i * 10 ) ) );
+      }
+
+      modal button.secondary, modal .button.secondary {
+          background-color: transparent;
+          border-color: contrast( spin( @color--0, ( @i * 10 ) ) );
+          color: contrast( spin( @color--0, ( @i * 10 ) ) );
+      }
+    }
+
+    &[darkMode="false"] {
+
+      button.secondary, .button.secondary {
+        color: contrast( spin( @color--0, ( @i * 10 ) ), spin( @color--0, ( @i * 10 ) ), #000000 );
+      }
+
+      modal button.secondary, modal .button.secondary {
+          background-color: transparent;
+          border-color: contrast( spin( @color--0, ( @i * 10 ) ) );
+          color: contrast( spin( @color--0, ( @i * 10 ) ) );
+      }
+    }
+
+    toolbarItem.current i {
+      color: spin( @color--0, ( @i * 10 ) );
+    }
+
+    button, .button,
+    label.radio input:checked + .radioButton,
+    label.switch input:checked + .slider,
+    sectionTitle {
+      color: contrast( spin( @color--0, ( @i * 10 ) ) );
+    }
+
+    modal {
+      color: contrast( spin( @color--0, ( @i * 10 ) ) );
+
+      button, .button {
+        background-color: contrast( spin( @color--0, ( @i * 10 ) ) );
+        color: contrast( contrast( spin( @color--0, ( @i * 10 ) ) ) );
+
+        &.secondary {
+          background-color: transparent;
+          border-color: contrast( spin( @color--0, ( @i * 10 ) ) );
+          color: contrast( spin( @color--0, ( @i * 10 ) ) );
+        }
+      }
+
+      form {
+
+        input {
+          box-shadow: 0 1px 0 fade( contrast( spin( @color--0, ( @i * 10 ) ) ), 50% );
+          color: contrast( spin( @color--0, ( @i * 10 ) ) );
+
+          &:hover, &:focus {
+            box-shadow: 0 1px 0 fade( contrast( spin( @color--0, ( @i * 10 ) ) ), 100% );
+          }
+        }
+
+        label {
+          color: fade( contrast( spin( @color--0, ( @i * 10 ) ) ), 50% );
+        }
+      }
+
+      icon {
+        border-color: contrast( spin( @color--0, ( @i * 10 ) ) );
+
+        i {
+          color: contrast( spin( @color--0, ( @i * 10 ) ) );
+        }
+      }
+    }
+
+    spinner .spinner__svg__path {
+      stroke: spin( @color--0, ( @i * 10 ) );
+    }
+  }
+  .generate-style-colors( @n, @i + 1 );
+}
+
+.transition() {
+  transition: .3s;
+  -webkit-transition: .3s;
+}
+
+html {
+  font-size: 16px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  body {
+    font-family: 'Lato', sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    a {
+      text-decoration: none;
+    }
+
+    button, .button {
+      align-items: center;
+      background-color: @color--0;
+      border: 0;
+      border-radius: 2rem;
+      box-sizing: border-box;
+      display: flex;
+      font-size: 1rem;
+      font-weight: 700;
+      height: 3rem;
+      padding: 0 2.5rem;
+      text-transform: uppercase;
+      .transition();
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:focus, &:hover {
+        background-color: darken( @color--0, 10% );
+      }
+
+      &.icon {
+        align-items: center;
+        display: flex;
+        height: 2rem;
+        justify-content: center;
+        padding: 0;
+        width: 2rem;
+      }
+
+      &.delete {
+        color: contrast( @color--0 );
+        background-color: @color--0;
+
+        &:hover,
+        &:focus {
+          background-color: darken( @color--0, 10% );
+        }
+      }
+
+      &.secondary {
+        background-color: transparent;
+        border: 2px solid @color--0;
+        color: @color--0;
+
+        &:hover {
+          border: 2px solid darken( @color--0, 10%);
+          color: darken( @color--0, 10% );
+        }
+      }
+    }
+
+    buttonGroup {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 100%;
+
+      > * {
+        margin-bottom: 1rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    form {
+      align-items: center;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      inputContainer {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2rem;
+        width: 100%;
+
+        &.compact {
+          align-items: center;
+          flex-direction: row;
+          justify-content: space-between;
+
+          label {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+    }
+
+    hr {
+      border: 0;
+      box-shadow: 0 1px 0 fade( @color--white, 50% );
+      height: 1px;
+      margin: 2rem 0;
+      width:100%;
+    }
+
+    icon {
+      align-items: center;
+      border: 2px solid @color--white;
+      border-radius: 50%;
+      box-sizing: border-box;
+      display: flex;
+      height: 7rem;
+      justify-content: center;
+      width: 7rem;
+
+      i {
+        color: @color--white;
+        font-size:3.5rem;
+      }
+    }
+
+    input, select {
+      background-color: transparent;
+      border: none;
+      border-radius: 0;
+      font-family: 'Lato', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      height: 2.133333rem;
+      padding: 0;
+      -webkit-appearance: none;
+      .transition();
+
+      &:focus {
+        box-shadow: 0 1px 0 @color--0;
+        outline: none;
+      }
+
+      &:focus + label {
+        color: @color--0;
+      }
+    }
+
+    label {
+      font-size: .85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+
+      &.radio {
+        display: inline-block;
+        height: 2rem;
+        position:relative;
+        width: 2rem;
+
+        input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+
+          &:checked + .radioButton {
+            background-color: @color--0;
+            border: 2px solid fade( @color--white, 0% );
+          }
+
+          &:checked + .radioButton:before {
+            background-color: @color--white;
+          }
+        }
+
+        .radioButton {
+          background-color: transparent;
+          border: 2px solid fade( @color--white, 50% );
+          border-radius: 50%;
+          box-sizing: border-box;
+          bottom: 0;
+          cursor: pointer;
+          left: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
+          .transition();
+
+          &:before {
+            border-radius: 50%;
+            position: absolute;
+            content: "";
+            height: calc( 1rem - 6px );
+            width: calc( 1rem - 6px );
+            left: calc( .5rem + 1px );
+            bottom: calc( .5rem + 1px );
+            background-color: fade( @color--white, 0% );
+            .transition();
+          }
+        }
+      }
+
+      &.switch {
+        display: inline-block;
+        height: 2rem;
+        position: relative;
+        width: calc( 2.75rem + 6px );
+
+        input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+
+          &:checked + .slider {
+            background-color: @color--0;
+            border: 2px solid @color--0;
+          }
+
+          &:checked + .slider:before {
+            background-color: @color--white;
+            -webkit-transform: translateX(calc(.75rem + 6px));
+            -ms-transform: translateX(calc(.75rem + 6px));
+            transform: translateX(calc(.75rem + 6px));
+          }
+        }
+
+        .slider {
+          background-color: transparent;
+          border: 2px solid fade( @color--white, 50% );
+          border-radius: 3rem;
+          box-sizing: border-box;
+          bottom: 0;
+          cursor: pointer;
+          left: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
+          .transition();
+
+          &:before {
+            border-radius: 50%;
+            position: absolute;
+            content: "";
+            height: calc( 2rem - 6px );
+            width: calc( 2rem - 6px );
+            left: 1px;
+            bottom: 1px;
+            background-color: fade( @color--white, 100% );
+            .transition();
+          }
+        }
+      }
+    }
+
+    app {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      position: relative;
+      width: 100%;
+
+      main {
+        display: flex;
+        flex-grow: 1;
+        position: relative;
+
+        sectionContainer {
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+          height: 100%;
+          opacity: 0;
+          overflow: hidden;
+          position: absolute;
+          visibility: hidden;
+          width: 100%;
+          .transition();
+
+          &.show {
+            opacity: 1;
+            visibility: visible;
+          }
+
+          section {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: absolute;
+            transform: translateX( 0 );
+            width: 100%;
+            .transition();
+
+            &.left {
+              transform: translateX( -25% );
+            }
+            &.right {
+              transform: translateX( 100% );
+            }
+
+            sectionMain {
+              flex-grow: 1;
+              padding: 1rem 0;
+              overflow-y: auto;
+              -webkit-overflow-scrolling: touch;
+            }
+
+            sectionTitle {
+              align-items: center;
+              background-color: @color--0;
+              color: @color--white;
+              display: flex;
+              flex-grow: 0;
+              font-size: 1rem;
+              font-weight: 700;
+              min-height: 1rem;
+              max-height: 1rem;
+              justify-content: center;
+              padding: 1rem 0;
+              position: relative;
+              text-transform: uppercase;
+              width: 100%;
+              .transition();
+
+              addButton,
+              backButton {
+                align-items: center;
+                display: flex;
+                height: 1rem;
+                padding: 1rem;
+                position: absolute;
+                top: 0;
+
+                i {
+                  pointer-events: none;
+                }
+              }
+
+              addButton {
+                right: 0;
+              }
+
+              backButton {
+                left: 0;
+              }
+            }
+          }
+
+          &.sectionContainer--welcome {
+
+            h1 {
+              margin-bottom: 0rem;
+            }
+
+            icon {
+              margin-bottom: 3rem;
+            }
+
+            p {
+              line-height: 1.5rem;
+              margin-bottom: 3rem;
+            }
+          }
+        }
+      }
+
+      toolbar {
+        align-items: center;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        flex-grow: 0;
+        height: 3rem;
+        min-height: 3rem;
+        overflow: hidden;
+        width: 100%;
+        z-index: 1;
+        .transition();
+
+        &.hide {
+          height: 0px;
+          min-height: 0px;
+        }
+
+        toolbarItem {
+          align-items: center;
+          display: flex;
+          flex-grow: 1;
+          justify-content: center;
+          height: 100%;
+
+          i {
+            font-size: 2rem;
+            pointer-events: none;
+            .transition();
+          }
+        }
+      }
+    }
+
+    modalContainer {
+      align-items: center;
+      background-color: fade( @color--black, 70% );
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      left: 0;
+      opacity: 0;
+      position: fixed;
+      top: 0;
+      visibility: hidden;
+      width: 100%;
+      z-index: 2;
+      .transition();
+
+      &.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      modal {
+        align-items: center;
+        background-color: @color--0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+        left: 0;
+        padding: 1rem;
+        position: fixed;
+        top: 0;
+        visibility: hidden;
+        width: 100%;
+        .transition();
+
+        &.show {
+          visibility: visible;
+        }
+
+        button {
+          background-color: @color--white;
+          color: @color--black;
+        }
+
+        icon {
+          align-items: center;
+          border-radius: 7rem;
+          display: flex;
+          height: 7rem;
+          justify-content: center;
+          margin-bottom: 2rem;
+          width: 7rem;
+
+          i {
+            font-size: 3.5rem;
+          }
+        }
+
+        message {
+          margin-bottom: 2rem;
+        }
+
+        &.modal--error {
+          background-color: @color--0;
+
+          button {
+            background-color: contrast( @color--0 );
+            color: contrast( contrast( @color--0 ) );
+          }
+
+          icon {
+            border-color: contrast( @color--0 );
+
+            i {
+              color: contrast( @color--0 );
+            }
+          }
+
+          message {
+            color: contrast( @color--0 );
+          }
+        }
+
+        &.modal--success {
+          background-color: spin( @color--0, 150% );
+
+          button {
+            background-color: contrast( spin( @color--0, 150% ) );
+            color: contrast( contrast( spin( @color--0, 150% ) ) );
+          }
+
+          i,
+          message {
+            color: contrast( spin( @color--0, 150% ); )
+          }
+
+          icon {
+            border-color: contrast( spin( @color--0, 150% ) );
+          }
+        }
+      }
+    }
+
+    navigationList {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      navigationItem {
+        align-items: center;
+        display:flex;
+        flex-direction: row;
+        height: 3rem;
+        justify-content: space-between;
+        padding: 0 1rem;
+        .transition();
+
+        button.delete {
+          margin-right: 1rem;
+        }
+
+        i {
+          flex-grow: 0;
+          pointer-events: none;
+        }
+
+        title {
+          display: inline-block;
+            flex-grow: 1;
+          pointer-events: none;
+        }
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+
+    spinnerContainer {
+      align-items: center;
+      background-color: fade( @color--black, 70% );
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      left: 0;
+      opacity: 0;
+      position: fixed;
+      top: 0;
+      visibility: hidden;
+      width: 100%;
+      z-index: 2;
+      .transition();
+
+      &.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      spinner {
+        animation: animation--spinner--rotator 1.4s linear infinite;
+        transform-origin: center;
+
+        .spinner__svg__path {
+          animation: animation--spinner__path--dash 1.4s ease-in-out infinite;
+          fill: none;
+          stroke: #ff0040;
+          stroke-dasharray: 187;
+          stroke-dashoffset: 0;
+          stroke-width: 6;
+          transform-origin: center;
+        }
+      }
+    }
+
+    table {
+      border: none;
+      border-spacing: 0;
+      width: 100%;
+
+      thead {
+        text-transform: uppercase;
+      }
+
+      th, td {
+        margin: 0;
+        padding: 0 .5rem 2px .5rem;
+
+        input {
+          text-align: right;
+          width: 100%;
+        }
+      }
+
+      &.table--list {
+
+        tbody {
+
+          td:nth-child(1) {
+            max-width: 2.5rem;
+          }
+
+          td:nth-child(2) {
+            max-width: calc( 100vw - 16rem) ;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          input,
+          td:nth-child(3),
+          td:nth-child(4) {
+            max-width: 4.75rem;
+            text-align: right;
+          }
+        }
+      }
+    }
+
+    .bgColors( 36 );
+
+    .flexCenter {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    .logo--main {
+      height: 7rem;
+      margin-bottom: 2rem;
+      width: 7rem;
+    }
+
+    .logo__oval {
+      fill: @color--0;
+    }
+
+    .paddingLR {
+      padding: 0 1rem;
+    }
+
+    .subMenu {
+      align-items: center;
+      background: @color--0;
+      border-radius: 50%;
+      color: @color--white;
+      display: flex;
+      justify-content: center;
+      height: 3rem;
+      width: 3rem;
+
+      i {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@keyframes animation--spinner--rotator {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(270deg); }
+}
+
+@keyframes animation--spinner__path--dash {
+  0% { stroke-dashoffset: 187; }
+  50% {
+   stroke-dashoffset: 187/4;
+   transform:rotate(135deg);
+  }
+  100% {
+   stroke-dashoffset: 187;
+   transform:rotate(450deg);
+  }
+}
+
+body[darkMode="true"] {
+  background-color: @color--gray-800;
+  color: @color--white;
+
+  navigationItem:hover,
+  table tbody tr:nth-child(odd) td {
+    background-color: fade( @color--white, 5% );
+  }
+
+  section,
+  select option {
+    background-color: @color--gray-800;
+  }
+
+  navigationItem {
+    border-bottom: 1px solid fade( @color--white, 10% );
+  }
+
+  label.switch .slider {
+    border-color: fade( @color--white, 50% );
+  }
+
+  navigationList,
+  toolbar {
+    border-top: 1px solid fade( @color--white, 10% );
+  }
+
+  input,
+  select {
+    box-shadow: 0 1px 0 fade( @color--white, 50% );
+  }
+
+  modal button,
+  modal .button {
+    color: @color--black;
+  }
+
+  button,
+  .button,
+  input,
+  select {
+    color: @color--white;
+  }
+
+  label,
+  toolbarItem:not(.current)  i{
+    color: fade( @color--white, 50% );
+  }
+}
+
+body[darkMode="false"] {
+  background-color: @color--gray-50;
+  color: @color--black;
+
+  navigationItem:hover,
+  table tbody tr:nth-child(odd) td {
+    background-color: fade( @color--black, 5% );
+  }
+
+  label.switch .slider:before {
+    background-color: @color--black;
+  }
+
+  section,
+  select option {
+    background-color: @color--gray-50;
+  }
+
+  navigationItem {
+    border-bottom: 1px solid fade( @color--black, 10% );
+  }
+
+  label.radio .radioButton,
+  label.switch .slider {
+    border-color: fade( @color--black, 50% );
+  }
+
+  navigationList,
+  toolbar {
+    border-top: 1px solid fade( @color--black, 10% );
+  }
+
+  input,
+  select {
+    box-shadow: 0 1px 0 fade( @color--black, 50% );
+  }
+
+  button,
+  .button,
+  modal {
+    color: @color--white;
+  }
+
+  input,
+  select {
+    color: @color--black;
+  }
+
+  label,
+  toolbarItem:not(.current) i {
+    color: fade( @color--black, 50% );
+  }
+}
+
+::-webkit-scrollbar {
+  width: .5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: .25rem;
+  .transition();
+}
+
+.generate-style-colors( 36 );
+
+.logo__icon {
+  fill: @color--white;
+}
+
+.repeatContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  width: 100%;
+}

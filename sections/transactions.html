@@ -1,0 +1,88 @@
+<sectionContainer class="sectionContainer--transactions">
+  <section class="section--transactions">
+    <sectionTitle>
+      <addbutton submenu="transactions--add"><i class="fas fa-plus"></i></addbutton>
+      Transactions
+    </sectionTitle>
+    <sectionMain>
+      <navigationList class="navigationList--transactions navigationList--editable" fbPath="transactions/$uid/$key" form="form--transactions--edit" subMenuNew="transactions--edit" subMenuOld="transactions"></navigationList>
+    </sectionMain>
+  </section>
+  <section class="section--transactions--add right">
+    <sectionTitle>
+      <backbutton submenu="transactions"><i class="fas fa-angle-left"></i></backbutton>
+      Add Transaction
+    </sectionTitle>
+    <sectionMain>
+      <form class="form--transactions--add paddingLR">
+        <inputContainer>
+          <label>Description</label>
+          <input type="text" class="description" />
+        </inputContainer>
+        <inputContainer>
+          <label>Amount</label>
+          <input type="text" class="amount" />
+        </inputContainer>
+        <inputContainer>
+          <label>Start Date</label>
+          <input type="text" class="startDate" />
+        </inputContainer>
+        <inputContainer>
+          <label>Repeat</label>
+          <label class="switch"><input type="checkbox" class="repeat"><span class="slider"></span></label>
+        </inputContainer>
+        <div class="repeatContainer">
+          <select class="every">
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="biWeekly">Bi-Weekly</option>
+            <option value="monthly">Monthly</option>
+            <option value="quarterly">Quarterly</option>
+            <option value="semiMonthly">Semi-Monthly</option>
+            <option value="yearly">Yearly</option>
+          </select>
+        </div>
+        <button type="submit">Add</button>
+      </form>
+    </sectionMain>
+  </section>
+  <section class="section--transactions--edit right">
+    <sectionTitle>
+      <backbutton submenu="transactions"><i class="fas fa-angle-left"></i></backbutton>
+      Edit Transaction
+    </sectionTitle>
+    <sectionMain>
+      <form class="form--transactions--edit paddingLR">
+        <input type="hidden" class="key" />
+        <inputContainer>
+          <label>Description</label>
+          <input type="text" class="description" />
+        </inputContainer>
+        <inputContainer>
+          <label>Amount</label>
+          <input type="text" class="amount" />
+        </inputContainer>
+        <inputContainer>
+          <label>Start Date</label>
+          <input type="text" class="startDate" />
+        </inputContainer>
+        <inputContainer>
+          <label>Repeat</label>
+          <label class="switch"><input type="checkbox" class="repeat"><span class="slider"></span></label>
+        </inputContainer>
+        <div class="repeatContainer">
+          <select class="every">
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="biWeekly">Bi-Weekly</option>
+            <option value="monthly">Monthly</option>
+            <option value="quarterly">Quarterly</option>
+            <option value="semiMonthly">Semi-Monthly</option>
+            <option value="yearly">Yearly</option>
+          </select>
+        </div>
+        <button type="submit">Update</button>
+      </form>
+    </sectionMain>
+  </section>
+</sectionContainer>
