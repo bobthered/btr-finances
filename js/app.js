@@ -439,6 +439,10 @@ window.addEventListener( 'load', e => {
       table.setAttribute( 'dateStart', '' );
       table.setAttribute( 'dateEnd', '' );
       table.querySelectorAll( 'tbody tr:not(:first-child)' ).forEach(tr=>tr.remove());
+      const rowStart = table.querySelector( 'tbody tr:first-child' );
+      const date     = new Date();
+      const dateString = `${date.getMonth()+1}/${date.getDate()}`;
+      rowStart.querySelector( 'td:first-child' ).innerHTML = dateString;
 
       btrPWA.fb.db.ref( 'balanceStart/' + btrPWA.fb.user.uid )
       .once( 'value' )
